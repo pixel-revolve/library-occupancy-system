@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chy.dao.SeatDao">
+
+    <resultMap id="seatResultMap" type="com.chy.pojo.Seat">
+        <id column="id" property="id"/>
+        <result column="seat_id" property="seatId"/>
+        <result column="floor" property="floor"/>
+        <result column="is_empty" property="empty"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="seatResultMap">
+        select * from seat
+    </select>
+
+    <select id="getById" resultMap="seatResultMap">
+        select * from seat where id=#{id}
+    </select>
+
+</mapper>
+
+

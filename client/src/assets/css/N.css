@@ -1,0 +1,116 @@
+.top h2{
+    color: #343a40;
+    font-size:2rem;
+    font-family:Open Sans,Chinese Quote,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    text-align: center;
+}
+.top hr{
+    border-bottom: 0;
+    border-color:#f8f9fa;
+    margin-left: 30%;
+    margin-right: 30%;
+    display: block;
+    unicode-bidi: isolate;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    border-style: inset;
+    border-top-style: inset;
+    border-right-style: inset;
+    border-bottom-style: inset;
+    border-left-style: inset;
+    border-width: 1px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+.top h3,h4,h5,h6{
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    color: rgba(0,0,0,.85);
+    font-weight: 500;
+}
+.text-center{
+    text-align: center;
+}
+.accordion {
+    height: 15vh;
+    margin-left: 0%;
+    background-color: #fafafa;
+    color: #444;
+    cursor: pointer;
+    padding: 4vw;
+    width: 70vw;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+.panel {
+    width: 70vw;
+    margin-left: 10vw;
+    margin-right: 15%;
+    padding: 0 0vw;
+    background-color: white;
+    max-height: 0;
+    overflow: auto;
+    transition: max-height 0.2s ease-out;
+}
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+.accordion:after {
+    content: '\002B';  /* Unicode 字符 + 号 */
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+.active:after {
+    content: "\2212";  /* Unicode 字符 - 号 */
+}
+.page{
+    display: inline;
+}
+.help h3{
+    color: cornflowerblue;
+}
+.help h2{
+    font-size: 2rem;
+}
+.context{
+    background-color: #fff;
+    width: 100%;
+    height: 500px;
+    overflow: auto;
+    top: 0;
+    margin: 0;
+}
+.icon-bar {
+    width: 100%;
+    background-color: ghostwhite;
+    overflow: auto;
+}
+
+.icon-bar a {
+    float: left;
+    width: 20%;
+    text-align: center;
+    padding: 12px 0;
+    transition: all 0.3s ease;
+    color: black;
+    font-size: 36px;
+}
+
+.icon-bar a:hover {
+    background-color: lightyellow;
+}
+
+.active {
+    background-color: gold;
+}
+

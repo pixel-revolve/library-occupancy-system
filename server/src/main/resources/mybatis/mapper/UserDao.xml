@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chy.dao.UserDao">
+
+    <resultMap id="userResultMap" type="com.chy.pojo.User">
+        <id column="id" property="id"/>
+        <result column="username" property="userName"/>
+        <result column="password" property="password"/>
+        <result column="avatar" property="avatar"/>
+        <result column="mobile" property="mobile"/>
+        <result column="isAtLibrary" property="atLibrary"/>
+        <collection property="roles" ofType="com.chy.pojo.Role" fetchType="lazy">
+            <result column="role_id" property="id"/>
+            <result column="role_name" property="roleName"/>
+            <result column="description" property="description"/>
+        </collection>
+
+    </resultMap>
+
+    <insert id="add" parameterType="com.chy.pojo.User">
+        INSERT INTO user (username, password,mobile,avatar,isAtLibrary)
+        VALUES(#{userName}, #{password}, #{mobile}, #{avatar},#{atLibrary})
+    </insert>
+
+    <select id="findAll" resultMap="userResultMap">
+        select * from user
+    </select>
+
+    <select id="getById" resultMap="userResultMap">
+        select * from user where id=#{id}
+    </select>
+
+    <select id="getUserByName" resultMap="userResultMap" parameterType="string">
+        select `user`.*, `role`.id as role_id, `role`.role_name as role_name, `role`.description as description
+        from `user`
+                 left join `user_role` on `user`.id = `user_role`.user_id
+                 left join `role` on `user_role`.role_id = `role`.id
+        where `user`.username = #{userName}
+    </select>
+
+    <select id="getUserById" resultMap="userResultMap">
+        select `user`.*, `role`.id as role_id, `role`.role_name as role_name, `role`.description as description
+        from `user`
+                 left join `user_role` on `user`.id = `user_role`.user_id
+                 left join `role` on `user_role`.role_id = `role`.id
+        where `user`.id = #{id}
+    </select>
+
+    <update id="modifyUser" parameterType="com.chy.pojo.User">
+        update `user` as u set
+        u.username=#{userName},
+        u.password=#{password},
+        u.avatar=#{avatar},
+        u.mobile=#{mobile},
+        u.isAtLibrary=#{atLibrary}
+        where u.id=#{id}
+    </update>
+
+</mapper>
+
+

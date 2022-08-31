@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chy.dao.RoleDao">
+
+    <resultMap id="roleResultMap" type="com.chy.pojo.Role">
+        <id column="id" property="id"/>
+        <result column="role_name" property="roleName"/>
+        <result column="description" property="description"/>
+        <collection property="users" ofType="com.chy.pojo.User" fetchType="lazy">
+            <result column="userId" property="id"/>
+            <result column="mobile" property="mobile"/>
+            <result column="atLibrary" property="atLibrary"/>
+            <result column="userName" property="userName"/>
+            <result column="avatar" property="avatar"/>
+        </collection>
+    </resultMap>
+
+
+
+</mapper>
+
+

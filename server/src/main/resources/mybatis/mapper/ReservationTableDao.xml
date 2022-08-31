@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chy.dao.ReservationTableDao">
+
+    <resultMap id="reservationTableResultMap" type="com.chy.pojo.ReservationTable">
+        <id column="id" property="id"/>
+        <result column="time" property="time"/>
+        <result column="gmt_created" property="gmtCreated"/>
+        <association property="user" select="com.chy.dao.UserDao.getById" column="user_id" fetchType="lazy"/>
+        <association property="seat" select="com.chy.dao.SeatDao.getById" column="seat_id" fetchType="lazy"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="reservationTableResultMap">
+        select * from reservation
+    </select>
+
+    <select id="findByTableId" resultMap="reservationTableResultMap">
+        select * from reservation where id=#{id}
+    </select>
+
+</mapper>
+
+
