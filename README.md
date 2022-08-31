@@ -1,7 +1,5 @@
 # library-occupancy-system
 
-# 后端请看图书馆占座系统后端
-
 ## Project setup
 ```
 npm install
